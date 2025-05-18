@@ -1,24 +1,25 @@
 name: Hello World Workflow
 
 on:
-  # Exécuté lorsqu'un commit est poussé sur main
+  # Exécuté lorsqu'un commit est poussé sur la branche main
   push:
-    branches: [ main ]
-  # Aussi exécuté manuellement depuis l'interface
+    branches: [main]
+  
+  # Permet d'exécuter le workflow manuellement depuis l'interface GitHub
   workflow_dispatch:
 
 jobs:
   say-hello:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Afficher Hello World
-      run: echo "Hello World from GitHub Actions!"
-      
-    - name: Afficher la date
-      run: |
-        echo "Aujourd'hui nous sommes le"
-        date
-        
-    - name: Afficher les variables d'environnement
-      run: echo "Repository: ${{ github.repository }}"
+      - name: Afficher Hello World
+        run: echo "Hello World from GitHub Actions!"
+
+      - name: Afficher la date du jour
+        run: |
+          echo "Aujourd'hui nous sommes le :"
+          date
+
+      - name: Afficher le nom du dépôt
+        run: echo "Repository : ${{ github.repository }}"
