@@ -1,0 +1,17 @@
+name: Workflow avec lancement manuel
+
+on:
+  workflow_dispatch:
+    inputs:
+      prenom:
+        description: 'Entrez votre prénom'
+        required: true
+        default: 'Mohamed'
+
+jobs:
+  dire-bonjour:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Afficher un message personnalisé
+        run: echo "Bonjour ${{ github.event.inputs.prenom }} ! Bienvenue dans GitHub Actions."
